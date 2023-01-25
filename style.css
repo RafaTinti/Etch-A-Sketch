@@ -8,6 +8,11 @@
     display: flex;
 }
 
+h1 {
+    text-align: center;
+    
+}
+
 .navbar{
     width: 200px;
     display: flex;
@@ -46,8 +51,4 @@
     height: 38px; */
     border: 1px solid black;
     flex: 1;
-}
-
-.painted {
-    background-color: black;
 }

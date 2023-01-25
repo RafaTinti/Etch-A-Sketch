@@ -1,20 +1,19 @@
 const container = document.querySelector(".container");
-createGrid(64);
+createGrid(32);
 
-let mode = 0 // controls the mode of the app 0 - color 1 - rainbow 2 - gadient starts in color mode
+let mode = 0 // controls the mode of the app 0 - color 1 - rainbow. starts in color mode
 
 let squares = document.querySelectorAll(".square");
 const resetBtn = document.querySelector("#reset");
 const resizeBtn = document.querySelector("#resize");
 const colorBtn = document.querySelector("#color");
 const rainbowBtn = document.querySelector("#rainbow");
-const gradientBtn = document.querySelector("#gradient")
 
 resetBtn.addEventListener("click", reset);
 resizeBtn.addEventListener("click", resize);
 colorBtn.addEventListener("click", () => mode = 0);
 rainbowBtn.addEventListener("click", () => mode = 1); 
-gradientBtn.addEventListener("click", () => mode = 2);
+
 squares.forEach(element => {
     element.addEventListener("mouseover", paintSquare);  
 });
@@ -23,14 +22,10 @@ function paintSquare(e){
     //if (e.buttons === 0) return;
     switch(mode){
         case 0:
-            this.classList.add("painted");
+            this.style.backgroundColor = "black";
             break;
         case 1:
             this.style.backgroundColor = `rgb(${randomColor()},${randomColor()},${randomColor()})`;
-            console.log(`rgb(${randomColor()},${randomColor()},${randomColor()})`);
-            break;
-        case 2:
-            console.log("2");
             break;
         default:
             console.log("mode is invalid");
@@ -52,8 +47,7 @@ function createGrid(size){
 
 function reset(e){
     squares.forEach(element => {
-        element.classList.remove("painted");
-        element.style.backgroundColor = "white";
+        element.style.backgroundColor = "#ffffff";
     });
 }
 
